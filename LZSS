@@ -23,10 +23,10 @@ int main()
     setlocale(LC_ALL, "Russian");
     dictionary.resize(8);
     buffer.resize(5);
-    input = "МИСАТО КАЦУРАГИ";
+    input = "КРАСНАЯ КРАСКА";
     dictionary = "********";
     for (int i = 0; i < buffer.length(); i++) {
-        input[i]+=;
+        input+=" ";
     }
     for (int i = 0; i < 5; i++) {
         buffer[i] = input[i];
