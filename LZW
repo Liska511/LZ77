@@ -1,0 +1,62 @@
+// ConsoleApplication11.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
+//
+
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+string input;
+vector<string> dictionary;
+int MatchIndex = -1, DictionaryPosition = 256;
+
+int main()
+{
+    setlocale(LC_ALL, "Russian");
+    input = "КРАСНАЯ КРАСКА";
+    dictionary.resize(1);
+    dictionary[0] = " ";
+    string Phrase;
+
+    cout << "Входная фраза\tКод\tПозиция словаря" << endl;
+    cout << "ASKII+\t" "\t0-255" << endl;
+    for (int i = 0; i < input.length(); i++) {
+       
+        
+            Phrase = input[i];
+            Phrase += input[i + 1];
+            bool found = find(dictionary.begin(), dictionary.end(), Phrase) != dictionary.end();
+            if (found) {
+
+                while (found == true) {
+                    auto temp = find(dictionary.begin(), dictionary.end(), Phrase);
+                    MatchIndex = temp - dictionary.begin();
+                    i++;
+                    Phrase.push_back(input[i + 1]);
+                    found = find(dictionary.begin(), dictionary.end(), Phrase) != dictionary.end();
+
+
+                }
+
+
+
+                dictionary.push_back(Phrase);
+                cout << Phrase << "\t<" << MatchIndex << ">\t" << DictionaryPosition << endl;
+                DictionaryPosition++;
+
+
+            }
+            else {
+                dictionary.push_back(Phrase);
+                cout << Phrase << "\t0 " << input[i] << "\t" << DictionaryPosition << endl;
+                DictionaryPosition++;
+            }
+            if (i == (input.length()) - 1) {
+                cout << input[i] << "\t0 " << input[i] << endl;
+            }
+        
+    }
+    
+}
