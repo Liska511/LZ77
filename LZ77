@@ -1,4 +1,3 @@
-
 #include <string>
 #include <iostream>
 
@@ -15,7 +14,7 @@ int main()
     setlocale(LC_ALL, "Russian");
     dictionary.resize(8);
     buffer.resize(5);
-    input = "КРАСНАЯ КРАСКА";
+    input = "EVANGELION EVANGELION";
     for (int i = 0; i < buffer.length() - 1; i++)
     {
         input += " ";
@@ -57,7 +56,7 @@ int main()
             }
         }
         if (MatchFound == false) {
-            cout << Skip << " " << MatchIndex << " " << buffer[0] << endl;
+            cout << MatchIndex << " " << Skip << " " << buffer[0] << endl;
             cout << dictionary << "\t";
             Skip = 0;
             MatchIndex = 0;
