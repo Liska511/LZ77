@@ -33,7 +33,7 @@ int main()
     }
 
     cout << "Словарь\t" << "Буффер\t" << "Код\t"<<"Длина кода" << endl;
-    
+    cout<<dictionary << "\t" << buffer<<"  "<< "0 " << buffer[0]<<" "<<Byte+1<< endl;;
     
 
 
